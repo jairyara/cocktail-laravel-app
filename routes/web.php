@@ -14,4 +14,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/crear-coctel', function () {
+        return view('cocktail.create');
+    })->name('crear-coctel');
+    Route::get('/random-coctel', function () {
+        return view('cocktail.random');
+    })->name('random-coctel');
 });

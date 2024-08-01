@@ -1,10 +1,10 @@
 <x-action-section>
     <x-slot name="title">
-        {{ __('Two Factor Authentication') }}
+        {{ __('Doble factor de autenticación') }}
     </x-slot>
 
     <x-slot name="description">
-        {{ __('Add additional security to your account using two factor authentication.') }}
+        {{ __('Añade seguridad adicional a tu cuenta usando autenticación de doble factor.') }}
     </x-slot>
 
     <x-slot name="content">
@@ -22,7 +22,7 @@
 
         <div class="mt-3 max-w-xl text-sm text-gray-600">
             <p>
-                {{ __('When two factor authentication is enabled, you will be prompted for a secure, random token during authentication. You may retrieve this token from your phone\'s Google Authenticator application.') }}
+                {{ __('Cuando el segundo factor de autenticación está habilitado, durante la autenticación, se le solicitará un token aleatorio y seguro. Puede recuperar este token desde la aplicación Google Authenticator de su teléfono.') }}
             </p>
         </div>
 
@@ -31,9 +31,9 @@
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
                         @if ($showingConfirmation)
-                            {{ __('To finish enabling two factor authentication, scan the following QR code using your phone\'s authenticator application or enter the setup key and provide the generated OTP code.') }}
+                            {{ __('Para finalizar la habilitación de la autenticación de dos factores, escanee el siguiente código QR usando la aplicación de autenticación de su teléfono o ingrese la clave de configuración y proporcione el código OTP generado.') }}
                         @else
-                            {{ __('Two factor authentication is now enabled. Scan the following QR code using your phone\'s authenticator application or enter the setup key.') }}
+                            {{ __('La autenticación de dos factores ya está habilitada. Escanee el siguiente código QR con la aplicación de autenticación de su teléfono o ingrese la clave de configuración.') }}
                         @endif
                     </p>
                 </div>
@@ -44,7 +44,7 @@
 
                 <div class="mt-4 max-w-xl text-sm text-gray-600">
                     <p class="font-semibold">
-                        {{ __('Setup Key') }}: {{ decrypt($this->user->two_factor_secret) }}
+                        {{ __('Configurar llave') }}: {{ decrypt($this->user->two_factor_secret) }}
                     </p>
                 </div>
 
