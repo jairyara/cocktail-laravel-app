@@ -16,6 +16,13 @@ export default {
             fontFamily: {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'bittersweet': '#ff6e61',
+                'sandy-brown': '#f4a462',
+                'rob-roy': '#e8c468',
+                'jungle-green': '#2a9d90',
+                'blue-dianne': '#274754',
+            }
         },
     },
 
