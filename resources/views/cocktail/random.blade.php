@@ -16,9 +16,9 @@
                 </x-button>
             </section>
 
-            <section class="mt-4 overflow-hidden">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-
+            <section id="container-random" class="mt-4 overflow-hidden hidden">
+                <div class="grid grid-cols-1 gap-4 p-4">
+                    <x-cocktail.random-card />
                 </div>
             </section>
 
@@ -30,17 +30,47 @@
 
 <script>
 
-    const randomCocktailBtn = document.getElementById('random-cocktail-btn');
-    const getRandomCocktail = () => {
-        fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => console.error(error));
-    }
-    randomCocktailBtn.addEventListener('click', getRandomCocktail);
+    $(document).ready(function() {
+        $('#random-cocktail-btn').click(function() {
+            $.ajax({
+                url: 'https://www.thecocktaildb.com/api/json/v1/1/random.php',
+                type: 'GET',
+                success: function(data) {
+                    let image = $('#image');
+                    let name = $('#title');
+                    let category = $('#category');
+                    let alcoholic = $('#alcoholic');
+                    let glass = $('#glass');
+                    let instructions = $('#instructions');
+                    let save = $('#save-cocktail');
+                    let input_save = $('#input-save');
 
+                    image.attr('src', data.drinks[0].strDrinkThumb);
+                    image.attr('alt', data.drinks[0].strDrink);
+                    name.text(data.drinks[0].strDrink);
+                    category.text(data.drinks[0].strCategory);
+                    alcoholic.text(data.drinks[0].strAlcoholic);
+                    glass.text(data.drinks[0].strGlass);
+                    instructions.text(data.drinks[0].strInstructions);
+                    let container_random = $('#container-random');
+                    container_random.removeClass('hidden');
+
+                    if(data.drinks[0].strAlcoholic === 'Alcoholic') {
+                        alcoholic.addClass('bg-sandy-brown');
+                        alcoholic.removeClass('bg-jungle-green/50');
+                    } else {
+                        alcoholic.addClass('bg-jungle-green/50');
+                        alcoholic.removeClass('bg-sandy-brown');
+                    }
+
+                    input_save.val(data.drinks[0].idDrink);
+                },
+                error: function(error) {
+                    console.error(error);
+                }
+            });
+        });
+    });
 
 </script>
 
