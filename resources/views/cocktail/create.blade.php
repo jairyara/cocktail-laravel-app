@@ -7,9 +7,8 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="overflow-hidden sm:rounded-lg">
-
-                <table id="create-cocktails">
+            <div class="overflow-hidden p-4 lg:p-0 overflow-x-scroll sm:rounded-lg">
+                <table id="create-cocktails" class="table-cocktails">
                     <thead>
                         <tr>
                             <th>ID</th>

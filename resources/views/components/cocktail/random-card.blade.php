@@ -1,8 +1,8 @@
-<article class="flex bg-white border-2 border-blue-dianne rounded-lg">
+<article class="flex flex-col md:flex-row bg-white border-2 border-blue-dianne rounded-lg">
     <figure>
         <img id="image"
             src=""
-            class="rounded-tl-lg rounded-bl-lg max-w-96 aspect-square "
+            class="rounded-tl-lg rounded-tr-lg md:rounded-tr-none md:rounded-bl-lg max-2-72 md:max-w-96 aspect-square "
             loading="lazy"
             alt="Cargando">
     </figure>
@@ -20,7 +20,7 @@
             <div>
                 <div id="alcoholic" class="flex items-center justify-center bg-sandy-brown p-2 rounded-full">
                     <p class="text-white">
-                        Alcoholic
+
                     </p>
                 </div>
                 <p id="glass" class="text-gray-500">Old fashioned glass</p>
@@ -31,7 +31,7 @@
                 Instrucciones
             </h3>
             <p id="ingredients">
-                Pour ingredients into glass, and drop in a blue whale! The blue whale isn't really necessary, but it makes the drink more "fun"
+
             </p>
         </section>
 

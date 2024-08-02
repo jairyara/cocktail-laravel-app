@@ -7,8 +7,8 @@
 
     <section class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <section class="flex gap-2 flex-col items-center">
-                <h3 class="text-2xl text-blue-dianne">
+            <section class="p-4 lg:p-0 flex gap-4 flex-col items-center">
+                <h3 class="text-2xl text-blue-dianne text-center ">
                     ¿Listo para una experiencia inesperada? Prueba un cóctel al azar ahora.
                 </h3>
                 <x-button id="random-cocktail-btn">
@@ -41,7 +41,7 @@
                     let category = $('#category');
                     let alcoholic = $('#alcoholic');
                     let glass = $('#glass');
-                    let instructions = $('#instructions');
+                    let instructions = $('#ingredients');
                     let save = $('#save-cocktail');
                     let input_save = $('#input-save');
 

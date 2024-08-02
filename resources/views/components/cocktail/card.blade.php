@@ -3,7 +3,7 @@
 ])
 
 
-<article class="max-w-80 bg-white rounded-lg">
+<article class="max-w-80 bg-white rounded-lg shadow-lg drop-shadow-lg">
     <a href="{{route('cocktail.show', $cocktail)}}" class="block">
         <figure>
             <img
@@ -36,8 +36,8 @@
                     <p class="text-gray-500">{{ $cocktail->glass }}</p>
                 </div>
             </div>
-            <p class="text-gray-500 text-sm">
-                {{ $cocktail->instructions }}
+            <p class="text-gray-500 text-sm min-h-8">
+                {{ Str::limit($cocktail->instructions, 50) }}
             </p>
         </section>
     </a>
@@ -50,8 +50,11 @@
             </x-danger-button>
         </form>
 
-        <x-button>
-            {{ __('Editar coctel') }}
-        </x-button>
+        <form action="{{ route('cocktail.edit', $cocktail) }}">
+            <x-button>
+                {{ __('Editar coctel') }}
+            </x-button>
+        </form>
+
     </footer>
 </article>

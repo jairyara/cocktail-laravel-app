@@ -73,7 +73,7 @@ class CocktailController extends Controller
             'measure15' => $dataCocktail['strMeasure15'],
         ]);
 
-        return redirect()->route('cocktail.show', $cocktail);
+        return redirect()->route('cocktail.show', $cocktail)->with('success', 'Cocktail creado correctamente');
     }
 
     /**
@@ -89,7 +89,7 @@ class CocktailController extends Controller
      */
     public function edit(Cocktail $cocktail)
     {
-        //
+        return view('cocktail.edit', ['cocktail' => $cocktail]);
     }
 
     /**
@@ -97,7 +97,11 @@ class CocktailController extends Controller
      */
     public function update(UpdateCocktailRequest $request, Cocktail $cocktail)
     {
-        //
+        $validated = $request->validated();
+
+        $cocktail->update($validated);
+
+        return redirect()->route('cocktail.show', $cocktail)-> with('success', 'Cocktail actualizado correctamente');
     }
 
     /**
@@ -105,11 +109,9 @@ class CocktailController extends Controller
      */
     public function destroy(Cocktail $cocktail)
     {
-
         if($cocktail->delete()) {
-            return redirect()->route('cocktail.index');
+            return redirect()->route('cocktail.index')->with('success', 'Cocktail eliminado correctamente');
         }
-
 
     }
 

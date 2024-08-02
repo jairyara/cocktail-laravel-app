@@ -5,3 +5,32 @@
 [x-cloak] {
     display: none;
 }
+
+.table-cocktails thead {
+    background: #274754;
+    color: whitesmoke;
+}
+
+.table-cocktails tbody tr:nth-child(odd) {
+    background: #f3f4f6;
+}
+
+.table-cocktails tbody tr:nth-child(even) {
+    background: rgba(42,157,144, 0.2);
+}
+
+.dt-container .dt-length select {
+    width: 50px;
+    border: 1px solid #274754;
+}
+
+
+.dt-container .dt-paging nav .dt-paging-button:hover, .dt-container .dt-paging nav .dt-paging-button.current:hover {
+    background: #2a9d90;
+    color: whitesmoke !important;
+}
+
+.dt-container .dt-paging nav .dt-paging-button.current {
+    background: #274754;
+    color: whitesmoke !important;
+}

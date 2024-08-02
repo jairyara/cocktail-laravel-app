@@ -1,18 +1,17 @@
 @props([
     'cocktail'
-])'
+])
 
-
-<article class="flex bg-white rounded-lg">
-    <figure>
+<article class="flex flex-col md:flex-row">
+    <figure class="w-full">
         <img
             src="{{ $cocktail->image }}"
-            class="rounded-tl-lg rounded-bl-lg max-w-96 aspect-square "
+            class="rounded-lg w-full md:max-w-96 aspect-square "
             loading="lazy"
             alt="{{ $cocktail->name }}">
     </figure>
 
-    <section class="p-6 max-h-96 overflow-y-auto w-full">
+    <section class="p-6 w-full">
         <header class="flex items-center justify-between w-full">
             <div>
                 <h2 class="text-2xl text-blue-dianne font-bold">
@@ -38,6 +37,7 @@
             <p>
                 {{ $cocktail->instructions }}
             </p>
+
             <h3 class="mt-3 text-blue-dianne font-semibold">
                 Ingredientes
             </h3>
@@ -45,7 +45,7 @@
                 @for( $i = 1; $i <= 15; $i++ )
                     @if( $cocktail->{"ingredient$i"} )
                         <li class="w-1/2">
-                            {{ $cocktail->{"ingredient$i"} }} - {{ $cocktail->{"measure$i"} }}
+                            {{ $cocktail->{"measure$i"} }} {{ $cocktail->{"ingredient$i"} }}
                         </li>
                     @endif
                 @endfor
@@ -60,9 +60,11 @@
                     {{ __('Eliminar') }}
                 </x-danger-button>
             </form>
-            <x-button>
-                {{ __('Editar') }}
-            </x-button>
+            <form action="{{ route('cocktail.edit', $cocktail) }}">
+                <x-button>
+                    {{ __('Editar coctel') }}
+                </x-button>
+            </form>
         </footer>
     </section>
 
